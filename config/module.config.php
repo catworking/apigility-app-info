@@ -81,7 +81,7 @@ return [
     ],
     'zf-content-negotiation' => [
         'controllers' => [
-            'ApigilityAppInfo\\V1\\Rest\\About\\Controller' => 'HalJson',
+            'ApigilityAppInfo\\V1\\Rest\\About\\Controller' => 'HTML-or-Json',
             'ApigilityAppInfo\\V1\\Rest\\Protocol\\Controller' => 'HalJson',
         ],
         'accept_whitelist' => [
