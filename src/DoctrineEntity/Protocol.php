@@ -1,9 +1,32 @@
 <?php
-namespace ApigilityAppInfo\V1\Rest\Protocol;
+/**
+ * Created by PhpStorm.
+ * User: figo-007
+ * Date: 2016/12/19
+ * Time: 15:02:39
+ */
+namespace ApigilityAppInfo\DoctrineEntity;
 
-use ApigilityCatworkFoundation\Base\ApigilityEntity;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\OneToOne;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\JoinTable;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\OneToMany;
+use Doctrine\Common\Collections\ArrayCollection;
+use ApigilityUser\DoctrineEntity\User;
 
-class ProtocolEntity extends ApigilityEntity
+/**
+ * Class Protocol
+ * @package ApigilityAppInfo\DoctrineEntity
+ * @Entity @Table(name="apigilityappinfo_protocol")
+ */
+class Protocol
 {
     /**
      * @Id @Column(type="integer")
@@ -72,7 +95,6 @@ class ProtocolEntity extends ApigilityEntity
 
     public function getUpdateTime()
     {
-        if ($this->update_time instanceof \DateTime) return $this->update_time->getTimestamp();
-        else return $this->update_time;
+        return $this->update_time;
     }
 }

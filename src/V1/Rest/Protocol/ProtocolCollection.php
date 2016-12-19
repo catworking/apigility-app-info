@@ -1,8 +1,9 @@
 <?php
 namespace ApigilityAppInfo\V1\Rest\Protocol;
 
-use Zend\Paginator\Paginator;
+use ApigilityCatworkFoundation\Base\ApigilityCollection;
 
-class ProtocolCollection extends Paginator
+class ProtocolCollection extends ApigilityCollection
 {
+    protected $itemType = ProtocolEntity::class;
 }

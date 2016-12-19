@@ -5,6 +5,6 @@ class AboutResourceFactory
 {
     public function __invoke($services)
     {
-        return new AboutResource();
+        return new AboutResource($services);
     }
 }

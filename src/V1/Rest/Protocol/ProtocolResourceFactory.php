@@ -5,6 +5,6 @@ class ProtocolResourceFactory
 {
     public function __invoke($services)
     {
-        return new ProtocolResource();
+        return new ProtocolResource($services);
     }
 }

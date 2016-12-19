@@ -43,8 +43,7 @@ return [
             'entity_http_methods' => [
                 0 => 'GET',
                 1 => 'PATCH',
-                2 => 'PUT',
-                3 => 'DELETE',
+                2 => 'DELETE',
             ],
             'collection_http_methods' => [
                 0 => 'GET',
@@ -90,6 +89,7 @@ return [
                 0 => 'application/vnd.apigility-app-info.v1+json',
                 1 => 'application/hal+json',
                 2 => 'application/json',
+                3 => 'text/html',
             ],
             'ApigilityAppInfo\\V1\\Rest\\Protocol\\Controller' => [
                 0 => 'application/vnd.apigility-app-info.v1+json',
@@ -101,6 +101,7 @@ return [
             'ApigilityAppInfo\\V1\\Rest\\About\\Controller' => [
                 0 => 'application/vnd.apigility-app-info.v1+json',
                 1 => 'application/json',
+                2 => 'text/html',
             ],
             'ApigilityAppInfo\\V1\\Rest\\Protocol\\Controller' => [
                 0 => 'application/vnd.apigility-app-info.v1+json',

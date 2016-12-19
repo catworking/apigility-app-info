@@ -1,8 +1,9 @@
 <?php
 namespace ApigilityAppInfo\V1\Rest\About;
 
-use Zend\Paginator\Paginator;
+use ApigilityCatworkFoundation\Base\ApigilityObjectStorageAwareCollection;
 
-class AboutCollection extends Paginator
+class AboutCollection extends ApigilityObjectStorageAwareCollection
 {
+    protected $itemType = AboutEntity::class;
 }
