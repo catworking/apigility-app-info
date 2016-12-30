@@ -29,10 +29,20 @@ return [
             'apigility-app-info.rpc.about-page' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => '/appinfo/about/page',
+                    'route' => '/appinfo/about-page[/:about_id]',
                     'defaults' => [
                         'controller' => 'ApigilityAppInfo\\V1\\Rpc\\AboutPage\\Controller',
                         'action' => 'aboutPage',
+                    ],
+                ],
+            ],
+            'apigility-app-info.rpc.protocol-page' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => '/appinfo/protocol-page[/:protocol_id]',
+                    'defaults' => [
+                        'controller' => 'ApigilityAppInfo\\V1\\Rpc\\ProtocolPage\\Controller',
+                        'action' => 'protocolPage',
                     ],
                 ],
             ],
@@ -43,6 +53,7 @@ return [
             0 => 'apigility-app-info.rest.about',
             1 => 'apigility-app-info.rest.protocol',
             2 => 'apigility-app-info.rpc.about-page',
+            3 => 'apigility-app-info.rpc.protocol-page',
         ],
     ],
     'zf-rest' => [
@@ -95,6 +106,7 @@ return [
             'ApigilityAppInfo\\V1\\Rest\\About\\Controller' => 'HalJson',
             'ApigilityAppInfo\\V1\\Rest\\Protocol\\Controller' => 'HalJson',
             'ApigilityAppInfo\\V1\\Rpc\\AboutPage\\Controller' => 'HTML-or-Json',
+            'ApigilityAppInfo\\V1\\Rpc\\ProtocolPage\\Controller' => 'HTML-or-Json',
         ],
         'accept_whitelist' => [
             'ApigilityAppInfo\\V1\\Rest\\About\\Controller' => [
@@ -113,6 +125,12 @@ return [
                 2 => 'application/*+json',
                 3 => 'text/html',
             ],
+            'ApigilityAppInfo\\V1\\Rpc\\ProtocolPage\\Controller' => [
+                0 => 'application/vnd.apigility-app-info.v1+json',
+                1 => 'application/json',
+                2 => 'application/*+json',
+                3 => 'text/html',
+            ],
         ],
         'content_type_whitelist' => [
             'ApigilityAppInfo\\V1\\Rest\\About\\Controller' => [
@@ -124,6 +142,10 @@ return [
                 1 => 'application/json',
             ],
             'ApigilityAppInfo\\V1\\Rpc\\AboutPage\\Controller' => [
+                0 => 'application/vnd.apigility-app-info.v1+json',
+                1 => 'application/json',
+            ],
+            'ApigilityAppInfo\\V1\\Rpc\\ProtocolPage\\Controller' => [
                 0 => 'application/vnd.apigility-app-info.v1+json',
                 1 => 'application/json',
             ],
@@ -160,6 +182,7 @@ return [
     'controllers' => [
         'factories' => [
             'ApigilityAppInfo\\V1\\Rpc\\AboutPage\\Controller' => \ApigilityAppInfo\V1\Rpc\AboutPage\AboutPageControllerFactory::class,
+            'ApigilityAppInfo\\V1\\Rpc\\ProtocolPage\\Controller' => \ApigilityAppInfo\V1\Rpc\ProtocolPage\ProtocolPageControllerFactory::class,
         ],
     ],
     'zf-rpc' => [
@@ -169,6 +192,13 @@ return [
                 0 => 'GET',
             ],
             'route_name' => 'apigility-app-info.rpc.about-page',
+        ],
+        'ApigilityAppInfo\\V1\\Rpc\\ProtocolPage\\Controller' => [
+            'service_name' => 'ProtocolPage',
+            'http_methods' => [
+                0 => 'GET',
+            ],
+            'route_name' => 'apigility-app-info.rpc.protocol-page',
         ],
     ],
 ];

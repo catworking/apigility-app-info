@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+    <title><?php echo $this->payload->getTitle(); ?></title>
+    <style>
+        body {padding: 0 1rem; font-size: 0.8rem;}
+        h4 {text-align: center;}
+        h5 {}
+        h5 span { font-style: italic; }
+        p {text-indent: 2em; line-height: 1.5rem;}
+    </style>
+</head>
+<body>
+
+<h4><?php echo $this->payload->getTitle(); ?></h4>
+
+<div><?php echo $this->payload->getContent(); ?></div>
+
+</body>
+</html>

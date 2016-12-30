@@ -25,8 +25,11 @@ class AboutPageController extends AbstractActionController
 
     public function aboutPageAction()
     {
+        $about_id = $this->getEvent()->getRouteMatch()->getParam('about_id');
+        if (empty($about_id)) $about_id = 1;
+
         $vm = new ViewModel([
-            'payload' => new AboutEntity($this->aboutService->getAbout(1), $this->serviceManager)
+            'payload' => new AboutEntity($this->aboutService->getAbout($about_id), $this->serviceManager)
         ]);
         $vm->setTerminal(true);
         $vm->setTemplate('about-page.phtml');
