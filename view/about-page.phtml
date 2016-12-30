@@ -4,11 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
     <title>关于<?php echo $this->payload->getAppName(); ?></title>
+    <style>
+        body {padding: 0 1rem; font-size: 0.8rem;}
+        h4 {text-align: center;}
+        h5 {}
+        h5 span { font-style: italic; }
+        p {text-indent: 2em; line-height: 1.5rem;}
+    </style>
 </head>
-<body style="padding: 0 1rem;">
+<body>
+
 <?php if (!empty($this->payload->getLogo())): ?>
     <p><img style="width: 30%; display: block; margin: 0 auto;" src="<?php echo $this->payload->getLogo(); ?>"></p>
 <?php endif; ?>
-<?php echo $this->payload->getContent(); ?>
+
+<?php if (!empty($this->payload->getAppName())): ?>
+    <h4><?php echo $this->payload->getAppName(); ?></h4>
+<?php endif; ?>
+
+<p><?php echo $this->payload->getContent(); ?></p>
+
+<?php if (!empty($this->payload->getEnterpriseName())): ?>
+    <h5>企业名称：<span><?php echo $this->payload->getEnterpriseName(); ?></span></h5>
+<?php endif; ?>
+
+<?php if (!empty($this->payload->getCustomerServiceTel())): ?>
+    <h5>客服电话：<span><?php echo $this->payload->getCustomerServiceTel(); ?></span></h5>
+<?php endif; ?>
+
+<?php if (!empty($this->payload->getFeedbackEmail())): ?>
+    <h5>反馈邮箱：<span><?php echo $this->payload->getFeedbackEmail(); ?></span></h5>
+<?php endif; ?>
+
+<?php if (!empty($this->payload->getEnterpriseAddress())): ?>
+    <h5>地址：<span><?php echo $this->payload->getEnterpriseAddress(); ?></span></h5>
+<?php endif; ?>
+
 </body>
 </html>
