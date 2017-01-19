@@ -46,9 +46,9 @@ class ProtocolService
     public function updateProtocol($protocol_id, $data)
     {
         $protocol = $this->getProtocol($protocol_id);
-        $this->classMethodsHydrator->hydrate(
-            $this->classMethodsHydrator->extract($data),
-            $protocol);
+
+        if (isset($data->title)) $protocol->setTitle($data->title);
+        if (isset($data->content)) $protocol->setContent($data->content);
 
         $protocol->setUpdateTime(new \DateTime());
 

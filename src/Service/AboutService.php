@@ -53,9 +53,15 @@ class AboutService
     public function updateAbout($about_id, $data)
     {
         $about = $this->getAbout($about_id);
-        $this->classMethodsHydrator->hydrate(
-            $this->classMethodsHydrator->extract($data),
-            $about);
+
+        if (isset($data->app_name)) $about->setAppName($data->app_name);
+        if (isset($data->logo)) $about->setLogo($data->logo);
+        if (isset($data->content)) $about->setContent($data->content);
+
+        if (isset($data->customer_service_tel)) $about->setCustomerServiceTel($data->customer_service_tel);
+        if (isset($data->feedback_email)) $about->setFeedbackEmail($data->feedback_email);
+        if (isset($data->enterprise_name)) $about->setEnterpriseName($data->enterprise_name);
+        if (isset($data->enterprise_address)) $about->setEnterpriseAddress($data->enterprise_address);
 
         $about->setUpdateTime(new \DateTime());
 
